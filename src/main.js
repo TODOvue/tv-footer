@@ -1,5 +1,9 @@
 import { createApp } from 'vue'
+import { TvDemo } from '@todovue/tv-demo'
 import './style.scss'
+import '@todovue/tv-demo/style.css'
 import TvFooter from './demo/Demo.vue'
 
-createApp(TvFooter).mount('#tv-footer')
+const app = createApp(TvFooter)
+app.component('TvDemo', TvDemo)
+app.mount('#tv-footer')
