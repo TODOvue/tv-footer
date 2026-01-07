@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "sass:color";
 
 .tv-footer {
   width: 100%;
@@ -50,7 +51,7 @@
     }
 
     .tv-footer__link:hover {
-      color: darken($primary-color, 10%);
+      color: color.adjust($primary-color, $lightness: -10%);
     }
   }
 }
