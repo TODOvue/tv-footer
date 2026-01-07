@@ -36,7 +36,8 @@ const { brand, navigation, social, legal, version, copyright } = useFooter(props
       <div v-if="social && social.length" class="tv-footer__section">
         <div class="tv-footer__social">
           <a v-for="(item, index) in social" :key="index" :href="item.url" class="tv-footer__social-link" target="_blank" rel="noopener noreferer">
-            <i v-if="item.icon" :class="item.icon"></i>
+            <img v-if="item.iconUrl" :src="item.iconUrl" :alt="item.label" class="tv-footer__social-icon-img" />
+            <i v-else-if="item.icon" :class="item.icon"></i>
             <span v-else>{{ item.label }}</span>
           </a>
         </div>
