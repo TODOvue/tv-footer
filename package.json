@@ -1,0 +1,68 @@
+{
+  "name": "@todovue/tv-footer",
+  "private": false,
+  "author": "Cristhian Daza",
+  "description": "A simple and customizable footer component for Vue.js applications, perfect for enhancing your web projects with ease.",
+  "license": "MIT",
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://ui.todovue.blog/footer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TODOvue/tv-footer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TODOvue/tv-footer/issues"
+  },
+  "keywords": [
+    "todovue",
+    "front-end",
+    "web",
+    "vue",
+    "vuejs",
+    "vue-js",
+    "footer",
+    "show-footer",
+    "vue-footer",
+    "vue-footer-component"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/tv-footer.es.js",
+      "require": "./dist/tv-footer.cjs.js"
+    },
+    "./style.css": "./dist/tv-footer.css",
+    "./nuxt": "./nuxt.js"
+  },
+  "main": "dist/tv-footer.cjs.js",
+  "module": "dist/tv-footer.es.js",
+  "types": "dist/tv-footer.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "nuxt.js"
+  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "sideEffects": [
+    "*.css",
+    "*.scss",
+    "dist/*.css"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:demo": "cp README.md public/ && cp CHANGELOG.md public/ && VITE_BUILD_TARGET=demo vite build"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.26"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.3",
+    "sass": "^1.97.1",
+    "vite": "^7.3.0",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}
