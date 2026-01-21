@@ -15,6 +15,6 @@ const TvFooter = defineAsyncComponent(/* webpackChunkName: "tvFooter" */() => im
     npm-install="@todovue/tv-footer"
     source-link="https://github.com/TODOvue/tv-footer"
     url-clone="https://github.com/TODOvue/tv-footer.git"
-    version="1.0.0"
+    version="1.1.0"
   />
 </template>
