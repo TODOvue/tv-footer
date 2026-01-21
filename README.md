@@ -16,12 +16,11 @@ A simple, customizable, and responsive Vue 3 footer component with support for b
 
 > Demo: https://ui.todovue.blog/footer
 
----
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
 - [Quick Start (SPA)](#quick-start-spa)
-- [Nuxt 3 / SSR Usage](#nuxt-3--ssr-usage)
+- [Nuxt 4 / SSR Usage](#nuxt-4--ssr-usage)
 - [Component Registration Options](#component-registration-options)
 - [Props](#props)
 - [Configuration Object](#configuration-object)
@@ -34,7 +33,6 @@ A simple, customizable, and responsive Vue 3 footer component with support for b
 - [Contributing](#contributing)
 - [License](#license)
 
----
 ## Features
 - Fully responsive grid layout (1 column on mobile, 2 on tablet, 4 on desktop)
 - Customizable brand section with logo and version display
@@ -49,7 +47,6 @@ A simple, customizable, and responsive Vue 3 footer component with support for b
 - Lightweight and tree-shakeable
 - TypeScript support
 
----
 ## Installation
 Using npm:
 ```bash
@@ -93,7 +90,6 @@ export default defineNuxtConfig({
 
 Then register the component in a plugin as shown in the [Nuxt 3 / SSR Usage](#nuxt-3--ssr-usage) section.
 
----
 ## Quick Start (SPA)
 Global registration (main.js / main.ts):
 ```js
@@ -142,8 +138,7 @@ const footerConfig = {
 ```
 **Note:** Don't forget to import the CSS in your main entry file as shown above.
 
----
-## Nuxt 3 / SSR Usage
+## Nuxt 4 / SSR Usage
 First, add the module to your `nuxt.config.ts`:
 ```ts
 // nuxt.config.ts
@@ -205,7 +200,6 @@ import { TvFooter } from '@todovue/tv-footer'
 </script>
 ```
 
----
 ## Component Registration Options
 | Approach                                                                 | When to use                                    |
 |--------------------------------------------------------------------------|------------------------------------------------|
@@ -213,7 +207,6 @@ import { TvFooter } from '@todovue/tv-footer'
 | Local named import `{ TvFooter }`                                        | Isolated / code-split contexts                 |
 | Direct default import `import TvFooter from '@todovue/tv-footer'`        | Single usage or manual registration            |
 
----
 ## Props
 | Prop   | Type   | Default | Description                                                    |
 |--------|--------|---------|----------------------------------------------------------------|
@@ -229,7 +222,32 @@ Example:
 <TvFooter :config="myFooterConfig" />
 ```
 
----
+## Events
+
+| Event Name  | Payload | Description                                                                     |
+|:------------|:--------|:--------------------------------------------------------------------------------|
+| `subscribe` | `email` | Emitted when the user submits the newsletter form. Payload is the email string. |
+
+## Slots
+TvFooter provides slots to allow custom content injection for specific sections.
+
+| Slot Name    | Props (Scope)                  | Description                                      |
+|:-------------|:-------------------------------|:-------------------------------------------------|
+| `brand`      | `{ brand, version }`           | Replace the brand/logo section                   |
+| `newsletter` | `{ newsletter }`               | Replace the newsletter subscription section      |
+| `bottom`     | `{ copyright, legal }`         | Replace the bottom section (copyright + legal)   |
+
+Example Usage:
+```vue
+<TvFooter :config="config">
+  <template #brand="{ brand }">
+    <div class="custom-brand">
+       <h1>{{ brand.name }}</h1>
+    </div>
+  </template>
+</TvFooter>
+```
+
 ## Configuration Object
 The `config` prop accepts an object with the following structure:
 
@@ -301,6 +319,25 @@ The `config` prop accepts an object with the following structure:
 }
 ```
 
+### Newsletter Section
+```ts
+{
+  newsletter: {
+    title: string,       // Newsletter Title (optional)
+    description: string, // Newsletter Description (optional)
+    placeholder: string, // Input placeholder (optional)
+    buttonText: string   // Button text (optional)
+  }
+}
+```
+
+### Back To Top
+```ts
+{
+  backToTop: boolean   // Show back to top button (default: false)
+}
+```
+
 ### Complete Configuration Example
 ```js
 const footerConfig = {
@@ -357,7 +394,6 @@ const footerConfig = {
 }
 ```
 
----
 ## Composable API
 TvFooter includes a composable `useFooter` that you can use to process footer configuration and build custom footer implementations.
 
@@ -408,7 +444,6 @@ const { brand, copyright } = useFooter(config)
 - Reactive computed properties
 - Type-safe array validation
 
----
 ## Usage Examples
 
 ### Minimal Footer
@@ -626,7 +661,6 @@ const { brand, navigation, copyright } = useFooter(config)
 </style>
 ```
 
----
 ## Styling
 TvFooter comes with built-in responsive styles and light/dark mode support.
 
@@ -690,7 +724,6 @@ You can override the default styles by targeting the CSS classes:
 - `.tv-footer__bottom` - Bottom section with copyright and legal
 - `.tv-footer__legal` - Legal links container
 
----
 ## Accessibility
 - **Semantic HTML**: Uses proper `<footer>`, `<nav>`, `<ul>`, and `<a>` elements
 - **ARIA Labels**: Social links include accessible labels
@@ -700,7 +733,6 @@ You can override the default styles by targeting the CSS classes:
 - **Screen Reader Friendly**: Proper heading hierarchy and semantic structure
 - **Alternative Text**: Images include alt attributes
 
----
 ## SSR Notes
 - **SSR-Safe**: No direct `window`/`document` access during module evaluation
 - **Nuxt 3 Compatible**: Works seamlessly with Nuxt 3 out of the box
@@ -708,7 +740,6 @@ You can override the default styles by targeting the CSS classes:
 - **Universal Rendering**: Works in both client and server contexts
 - **Vue 3 Composition API**: Uses modern Vue 3 composables
 
----
 ## Development
 ```bash
 git clone https://github.com/TODOvue/tv-footer.git
@@ -719,14 +750,11 @@ npm run build   # build library
 ```
 Local demo served from Vite using `index.html` and demo examples in `src/demo`.
 
----
 ## Contributing
 PRs and issues welcome. See [CONTRIBUTING.md](./CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 
----
 ## License
 MIT © TODOvue
 
----
 ### Attributions
 Crafted for the TODOvue component ecosystem

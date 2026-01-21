@@ -5,6 +5,21 @@ All notable changes to `@todovue/tv-footer` will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-01-21
+
+### Added
+- Added `newsletter` properties to `useFooter` composable return.
+- Added new styles for newsletter form and back-to-top button.
+
+### Dependencies
+- Updated `@todovue/tv-demo` to `^1.4.4`.
+- Updated `sass` to `^1.97.2`.
+- Updated `vite` to `^7.3.1`.
+
+### Changed
+- Enhanced footer styles to improve visual consistency across the application.
+- Improved responsiveness of the footer component for better mobile and tablet compatibility.
+
 ## [1.0.0] - 2026-01-07
 
 ### Added
@@ -27,4 +42,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Backdrop blur effect on social icons
 - Comprehensive documentation and examples
 
+[1.1.0]: https://github.com/TODOvue/tv-footer/pull/2/files
 [1.0.0]: https://github.com/TODOvue/tv-footer/pull/1/files

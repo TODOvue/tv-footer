@@ -2,7 +2,7 @@ import { computed } from 'vue'
 
 export function useFooter(config) {
   const brand = computed(() => config?.brand || null)
-  
+
   const navigation = computed(() => {
     if (!config?.navigation || !Array.isArray(config.navigation)) return []
     return config.navigation
@@ -19,11 +19,15 @@ export function useFooter(config) {
   })
 
   const version = computed(() => config?.version || '')
-  
+
   const copyright = computed(() => config?.copyright || '')
 
+  const newsletter = computed(() => {
+    return config?.newsletter || null
+  })
+
   const currentYear = new Date().getFullYear()
-  
+
   const formattedCopyright = computed(() => {
     const text = copyright.value
     return text.replace('{year}', currentYear)
@@ -35,6 +39,7 @@ export function useFooter(config) {
     social,
     legal,
     version,
-    copyright: formattedCopyright
+    copyright: formattedCopyright,
+    newsletter
   }
 }
