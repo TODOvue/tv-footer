@@ -1,11 +1,26 @@
-import GitHubWithIcon from './icons/github-white.svg';
-import FacebookIcon from './icons/facebook.png';
-import TODOvue from './icons/todovue.png';
+<template>
+  <TvFooter :config="conf" @subscribe="handleSubscribe" />
+</template>
 
-import Default from './demos/default.vue?raw';
-import Newsletter from './demos/newsletter.vue?raw';
+<script setup>
+import { TvFooter } from '@todovue/tv-footer'
+import '@todovue/tv-footer/style.css'
+import FacebookIcon from './utils/icons/facebook.png'
+import GitHubWithIcon from "../icons/github-white.svg";
+import TODOvue from "../icons/todovue.png";
 
-const config = {
+const handleSubscribe = (email) => {
+  console.log('Subscribe event received:', email);
+  alert(`Subscribed with: ${email}`);
+}
+
+const conf = {
+  newsletter: {
+    title: 'Subscribe to our newsletter',
+    description: 'Get the latest news and updates right to your inbox.',
+    placeholder: 'Your email address',
+    buttonText: 'Subscribe'
+  },
   brand: {
     logo: 'https://res.cloudinary.com/denj4fg7f/image/upload/v1766199952/logo_ohpadg.png', // Optional
     url: '/'
@@ -41,7 +56,7 @@ const config = {
     {
       label: 'GitHub',
       url: 'https://github.com/TODOvue',
-      iconUrl: GitHubWithIcon // Icon library class (e.g. FontAwesome, UnoCSS)
+      iconUrl: GitHubWithIcon // Icon library class (e.g. FontAwesome, UnoCSS) use /icon
     },
     {
       label: 'Facebook',
@@ -61,34 +76,4 @@ const config = {
   ],
   copyright: '© {year} TvFooter. All rights reserved.'
 }
-
-const configEnhanced = {
-  ...config,
-  newsletter: {
-    title: 'Subscribe to our newsletter',
-    description: 'Get the latest news and updates right to your inbox.',
-    placeholder: 'Your email address',
-    buttonText: 'Subscribe'
-  }
-}
-
-export const demos = [
-  {
-    id: 1,
-    title: "TvFooter Default",
-    description: "Default TvFooter component",
-    propsData: {
-      config,
-    },
-    html: Default,
-  },
-  {
-    id: 2,
-    title: "TvFooter Enhanced",
-    description: "TvFooter with Newsletter",
-    propsData: {
-      config: configEnhanced,
-    },
-    html: Newsletter,
-  },
-];
+</script>

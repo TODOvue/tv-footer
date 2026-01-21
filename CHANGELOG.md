@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Added `newsletter` properties to `useFooter` composable return.
+- Added new styles for newsletter form and back-to-top button.
+
 ### Dependencies
 - Updated `@todovue/tv-demo` to `^1.4.4`.
 - Updated `sass` to `^1.97.2`.

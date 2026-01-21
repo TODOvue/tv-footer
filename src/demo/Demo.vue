@@ -10,6 +10,7 @@ const TvFooter = defineAsyncComponent(/* webpackChunkName: "tvFooter" */() => im
     hide-background
     :component="TvFooter"
     :variants="demos"
+    :manual-emits="['subscribe']"
     component-name="TvFooter"
     npm-install="@todovue/tv-footer"
     source-link="https://github.com/TODOvue/tv-footer"
