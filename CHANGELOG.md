@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `sass` to `^1.97.2`.
 - Updated `vite` to `^7.3.1`.
 
+### Changed
+- Enhanced footer styles to improve visual consistency across the application.
+- Improved responsiveness of the footer component for better mobile and tablet compatibility.
+
 ## [1.0.0] - 2026-01-07
 
 ### Added
