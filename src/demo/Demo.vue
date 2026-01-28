@@ -1,6 +1,7 @@
 <script setup>
 import { defineAsyncComponent } from 'vue'
-import { demos } from "./utils/mocks.js";
+import { demos } from './utils/mocks.js'
+import { TvDemo } from '@todovue/tv-demo'
 
 const TvFooter = defineAsyncComponent(/* webpackChunkName: "tvFooter" */() => import('../components/TvFooter.vue'))
 </script>
@@ -15,6 +16,6 @@ const TvFooter = defineAsyncComponent(/* webpackChunkName: "tvFooter" */() => im
     npm-install="@todovue/tv-footer"
     source-link="https://github.com/TODOvue/tv-footer"
     url-clone="https://github.com/TODOvue/tv-footer.git"
-    version="1.1.0"
+    version="1.1.1"
   />
 </template>
