@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Implemented event handling for link clicks within the footer component.
 
+### Changed
+- Applied a maximum width constraint to the footer section to improve layout consistency and readability.
+
 ## [1.1.1] - 2026-01-27
 
 ### Changed
