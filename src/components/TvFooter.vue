@@ -11,7 +11,11 @@ const props = defineProps({
 
 const { brand, navigation, social, legal, version, copyright, newsletter } = useFooter(props.config)
 const email = ref('')
-const emit = defineEmits(['subscribe'])
+const emit = defineEmits(['subscribe', 'link-click'])
+
+const handleLinkClick = (item) => {
+  emit('link-click', item)
+}
 
 const handleSubscribe = () => {
   if (email.value) {
@@ -27,7 +31,7 @@ const handleSubscribe = () => {
       <div class="tv-footer__left-column">
         <slot name="brand" :brand="brand" :version="version">
           <div v-if="brand" class="tv-footer__brand">
-            <a :href="brand.url || '/'" class="tv-footer__logo">
+          <a :href="brand.url || '/'" class="tv-footer__logo" @click.prevent="handleLinkClick(brand)">
               <img v-if="brand.logo" :src="brand.logo" :alt="brand.name" />
               <span v-if="brand.name">{{ brand.name }}</span>
             </a>
@@ -60,7 +64,7 @@ const handleSubscribe = () => {
           <h3 v-if="group.title" class="tv-footer__section-title">{{ group.title }}</h3>
           <ul class="tv-footer__links">
             <li v-for="(link, i) in group.items" :key="i">
-              <a :href="link.url" class="tv-footer__link">
+              <a :href="link.url" class="tv-footer__link" @click.prevent="handleLinkClick(link)">
                 {{ link.label }}
               </a>
             </li>
@@ -70,7 +74,7 @@ const handleSubscribe = () => {
 
       <div v-if="social && social.length" class="tv-footer__social-section">
         <div class="tv-footer__social">
-          <a v-for="(item, index) in social" :key="index" :href="item.url" class="tv-footer__social-link" target="_blank" rel="noopener noreferer">
+          <a v-for="(item, index) in social" :key="index" :href="item.url" class="tv-footer__social-link" target="_blank" rel="noopener noreferer" @click.prevent="handleLinkClick(item)">
             <img v-if="item.iconUrl" :src="item.iconUrl" :alt="item.label" class="tv-footer__social-icon-img" />
             <i v-else-if="item.icon" :class="item.icon"></i>
             <span v-else>{{ item.label }}</span>
@@ -85,7 +89,7 @@ const handleSubscribe = () => {
         <div v-if="legal && legal.length" class="tv-footer__legal">
           <ul class="tv-footer__links" style="flex-direction: row; gap: 1.5rem;">
             <li v-for="(link, index) in legal" :key="index">
-              <a :href="link.url" class="tv-footer__link">
+              <a :href="link.url" class="tv-footer__link" @click.prevent="handleLinkClick(link)">
                 {{ link.label }}
               </a>
             </li>
