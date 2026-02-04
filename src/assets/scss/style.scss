@@ -176,7 +176,7 @@
   font-size: 0.95rem;
   transition: all 0.2s ease;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   opacity: 0.75;
@@ -197,6 +197,10 @@
     border-radius: 50%;
     opacity: 0;
     transition: opacity 0.2s;
+    flex: 0 0 auto;
+    aspect-ratio: 1 / 1;
+    min-width: 4px;
+    min-height: 4px;
   }
 
   &:hover::before {
